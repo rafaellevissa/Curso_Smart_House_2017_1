@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Smart House</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="css/bootstrap.css" rel="stylesheet">
+
+	<style>
+	    body {
+	    	background:#2d2e32;
+	    }
+
+	    .body-container p {
+	    	opacity:0.80;
+	    	text-align:center;
+	    }
+
+		.top-header {
+			width:95%;
+			background:#ed5250;
+			text-align:center;
+			padding-top:10px;
+			padding-bottom:10px;
+			margin-bottom:10px;
+			margin:auto;
+			border-top:8px solid #cd4341;
+		}
+
+		.top-header h1 {
+			margin:0!important;
+			color:white;
+		}
+
+		.body-container {
+			width:95%;
+			background:white;
+			padding:10px;
+			margin:auto;
+		}
+        
+        .button-containers {
+        	margin:auto;
+        }
+
+		.buttons {
+			display:block;
+			text-decoration:none;
+			text-align:center;
+			padding:10px;
+			width:80%;
+			margin:auto;
+			margin-bottom:10px;
+			color:white;
+			font-size:20px;
+		}
+
+		.buttons:hover {
+			text-decoration:none;
+			opacity:0.90;
+			color:white;
+		}
+
+		.ligar {
+			background:#3db39e;
+			border-top:5px solid #339e8a;
+		}
+
+		.desligar {
+			background:#636162;
+			border-top:5px solid #504e4f;
+		}
+
+		/*Desktops*/
+		@media screen and (min-width: 992px) {
+
+			.top-header {
+				width:40%;
+				margin-top:50px!important;
+			}
+			.body-container{
+				width:40%!important;
+			}
+
+			.buttons {
+				width:50%!important;
+				height:100px;
+				line-height:70px;
+			}
+
+			.ligar {
+				float:left;
+			}
+
+			.desligar {
+				float:right;
+			}
+
+			body {
+				background-image:url('css/img/fundo.jpg');
+			}
+			
+		}
+
+        /*Tablets*/
+		@media screen and (min-width: 768px) {
+
+			.top-header {
+				margin-top:10px;
+			}
+			.buttons {
+				width:60%;
+			}
+		}
+
+		/*Celulares*/
+		@media screen and (max-width: 400px) {
+            
+            .body-container p {
+            	width:80%;
+		    	display:block;
+		    	margin:auto;
+		    	margin-bottom:10px;
+	       }
+		}
+	</style>
+</head>
+<body>
+      
+    <div class="container">
+
+	    <div class="top-header">
+	      	<h1>Smart House</h1>
+	    </div>
+
+	    <div class="body-container">
+
+	        <p>
+	    	    Ligar e desligar Leed com Arduino por via do Wifi
+	        </p>
+	  
+	      	<a href="?function=led4_on" class="buttons ligar">Ligar</a>
+		  	<a href="?function=led4_off"" class="buttons desligar">Desligar</a>
+
+		  	<div style="clear:both;"></div>
+		    
+	    </div>
+
+	</div>
+
+</body>
+</html>
