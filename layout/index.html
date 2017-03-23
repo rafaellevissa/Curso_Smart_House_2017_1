@@ -2,12 +2,17 @@
 <html>
 <head>
 	<title>Smart House</title>
+	<link rel="icon" type="image/png" href="css/img/icon.png" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="css/bootstrap.css" rel="stylesheet">
 
 	<style>
 	    body {
 	    	background:#2d2e32;
+            background-image:url('css/img/fundo.jpg');
+            background-position:left top!important;
+            background-repeat:no-repeat;
+            margin-top:30px!important;
 	    }
 
 	    .body-container p {
@@ -75,7 +80,6 @@
 
 			.top-header {
 				width:40%;
-				margin-top:50px!important;
 			}
 			.body-container{
 				width:40%!important;
@@ -94,11 +98,6 @@
 			.desligar {
 				float:right;
 			}
-
-			body {
-				background-image:url('css/img/fundo.jpg');
-			}
-			
 		}
 
         /*Tablets*/
@@ -110,6 +109,10 @@
 			.buttons {
 				width:60%;
 			}
+
+			body {
+				background-position:center top!important;
+			}
 		}
 
 		/*Celulares*/
@@ -120,7 +123,11 @@
 		    	display:block;
 		    	margin:auto;
 		    	margin-bottom:10px;
-	       }
+	        }
+
+	        body {
+				background-position:center top!important;
+			}
 		}
 	</style>
 </head>
@@ -136,10 +143,11 @@
 
 	        <p>
 	    	    Ligar e desligar Leed com Arduino por via do Wifi
+	    	    <br><small>Curso de Smart House.</small>
 	        </p>
 	  
 	      	<a href="?function=led4_on" class="buttons ligar">Ligar</a>
-		  	<a href="?function=led4_off"" class="buttons desligar">Desligar</a>
+		  	<a href="?function=led4_off" class="buttons desligar">Desligar</a>
 
 		  	<div style="clear:both;"></div>
 		    
