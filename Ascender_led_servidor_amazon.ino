@@ -118,7 +118,10 @@ void reconnectMQTT() {
 void setup() {
   String id;
   Serial.begin(115200);
-  
+  pinMode(PIN_LED_1, OUTPUT);
+  pinMode(PIN_LED_2, OUTPUT);
+  digitalWrite(PIN_LED_1,LOW);
+  digitalWrite(PIN_LED_2,LOW);
   reconnectWiFi();
   initMQTT();
   
