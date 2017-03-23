@@ -30,29 +30,7 @@ WiFiClient espClient;
 PubSubClient MQTT(espClient);
 
 
-void acionaLed() {
-   digitalWrite(PIN_LED_1, LOW);
-   digitalWrite(PIN_LED_2, LOW);
-   delay(ACIONAMENTO_LED);
-   digitalWrite(PIN_LED_1, HIGH);
-   delay(ACIONAMENTO_LED);
-   digitalWrite(PIN_LED_1, LOW);
 
-
-   digitalWrite(PIN_LED_2, HIGH);
-   delay(ACIONAMENTO_LED);
-   digitalWrite(PIN_LED_2, LOW);
-   delay(ACIONAMENTO_LED);
-   digitalWrite(PIN_LED_2, HIGH);
-   delay(ACIONAMENTO_LED);
-   digitalWrite(PIN_LED_2, LOW);
-   delay(ACIONAMENTO_LED);
-   digitalWrite(PIN_LED_2, HIGH);
-   delay(ACIONAMENTO_LED*3);
-   digitalWrite(PIN_LED_2, LOW);
-   delay(ACIONAMENTO_LED);
-   
-}
 
 void reconnectWiFi() {
   if (WiFi.status() == WL_CONNECTED)
@@ -82,14 +60,32 @@ void callback(char* topic, byte* payload, unsigned int length) {
      msg += c;
   }
   
-  Serial.print("Mensagem [");
+ /* Serial.print("Mensagem [");
   Serial.print(topic);
   Serial.print("]: " + msg);
   Serial.println();
-
+*/
   if (msg.equals("1")) {    
     acionaLed();
   }
+}
+
+void acionaLed() {
+   digitalWrite(PIN_LED_1, LOW);
+   digitalWrite(PIN_LED_2, LOW);
+   delay(ACIONAMENTO_LED/4);
+   digitalWrite(PIN_LED_2, HIGH);
+   delay(ACIONAMENTO_LED/4);
+   digitalWrite(PIN_LED_2, LOW);
+   delay(ACIONAMENTO_LED/4);
+   digitalWrite(PIN_LED_2, HIGH);
+   delay(ACIONAMENTO_LED/4);
+   digitalWrite(PIN_LED_2, LOW);
+   delay(ACIONAMENTO_LED/4);
+   digitalWrite(PIN_LED_2, HIGH);
+   delay(ACIONAMENTO_LED*3);
+   digitalWrite(PIN_LED_2, LOW);
+   delay(ACIONAMENTO_LED/4);
 }
 
 void initMQTT() {
@@ -120,11 +116,10 @@ void setup() {
   Serial.begin(115200);
   pinMode(PIN_LED_1, OUTPUT);
   pinMode(PIN_LED_2, OUTPUT);
-  digitalWrite(PIN_LED_1,LOW);
-  digitalWrite(PIN_LED_2,LOW);
   reconnectWiFi();
-  initMQTT();
-  
+  initMQTT(); 
+  Serial.println(F("======================================================")); 
+  Serial.println(F("Digite seu ID (3 digitos):")); 
 }
 
 
@@ -137,9 +132,8 @@ void loop() {
   } 
   
   MQTT.loop();
-  while (Serial.available()>0) {
-    Serial.println(F("======================================================")); 
-    Serial.println(F("Digite seu ID (3 digitos):"));
+  
+  while (Serial.available()>0) {        
     leitura = Serial.readString();
     if (leitura != ""){
       Serial.print("id: ");
@@ -148,10 +142,14 @@ void loop() {
       Serial.print(l[1]);
       Serial.print(l[2]);
       Serial.println();
+      digitalWrite(PIN_LED_1, HIGH);
+      delay(ACIONAMENTO_LED);
+      digitalWrite(PIN_LED_1, LOW);
+      delay(ACIONAMENTO_LED);                 
       MQTT.publish(TOPICO_ENVIO, l);
-    }
+      Serial.println(F("======================================================")); 
+      Serial.println(F("Digite seu ID (3 digitos):"));
+    }   
   }
   
-  
-
 }
