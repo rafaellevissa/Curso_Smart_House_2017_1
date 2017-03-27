@@ -45,7 +45,10 @@
 				var p = document.createElement("p");
 				var url = "ws://iot.eclipse.org/ws";
 				
+				
 				p.innerHTML = "A conexão com o broker foi perdida";
+				p.setAttribute('class',"conexao_perdida");
+				
 				$("#debug").append(p);				
 				mosq.connect(url);
 			};

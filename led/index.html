@@ -1,139 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title>Smart House</title>
 	<link rel="icon" type="image/png" href="css/img/icon.png" />
 	
 	<link href="css/bootstrap.css" rel="stylesheet">
-	
-	<script type='text/javascript' src='http://test.mosquitto.org/mosquitto.js'></script>
-	<script type='text/javascript' src='http://code.jquery.com/jquery-3.2.1.min.js'></script>
-	<style>
-	    body {
-	    	background:#2d2e32;
-            background-image:url('css/img/fundo.jpg');
-            background-position:left top!important;
-            background-repeat:no-repeat;
-            margin-top:30px!important;
-	    }
-
-	    .body-container p {
-	    	opacity:0.80;
-	    	text-align:center;
-	    }
-
-		.top-header {
-			width:95%;
-			background:#ed5250;
-			text-align:center;
-			padding-top:10px;
-			padding-bottom:10px;
-			margin-bottom:10px;
-			margin:auto;
-			border-top:8px solid #cd4341;
-		}
-
-		.top-header h1 {
-			margin:0!important;
-			color:white;
-		}
-
-		.body-container {
-			width:95%;
-			background:white;
-			padding:10px;
-			margin:auto;
-		}
-        
-        .button-containers {
-        	margin:auto;
-        }
-
-		.buttons {
-			display:block;
-			text-decoration:none;
-			text-align:center;
-			padding:10px;
-			width:80%;
-			margin:auto;
-			margin-bottom:10px;
-			color:white;
-			font-size:20px;
-		}
-
-		.buttons:hover {
-			text-decoration:none;
-			opacity:0.90;
-			color:white;
-		}
-
-		.ligar {
-			background:#3db39e;
-			border-top:5px solid #339e8a;
-		}
-
-		.desligar {
-			background:#636162;
-			border-top:5px solid #504e4f;
-		}
-
-		/*Desktops*/
-		@media screen and (min-width: 992px) {
-
-			.top-header {
-				width:40%;
-			}
-			.body-container{
-				width:40%!important;
-			}
-
-			.buttons {
-				width:50%!important;
-				height:100px;
-				line-height:70px;
-			}
-
-			.ligar {
-				float:left;
-			}
-
-			.desligar {
-				float:right;
-			}
-		}
-
-        /*Tablets*/
-		@media screen and (min-width: 768px) {
-
-			.top-header {
-				margin-top:10px;
-			}
-			.buttons {
-				width:60%;
-			}
-
-			body {
-				background-position:center top!important;
-			}
-		}
-
-		/*Celulares*/
-		@media screen and (max-width: 400px) {
-            
-            .body-container p {
-            	width:80%;
-		    	display:block;
-		    	margin:auto;
-		    	margin-bottom:10px;
-	        }
-
-	        body {
-				background-position:center top!important;
-			}
-		}
-	</style>
+	<link rel="stylesheet" href="css/layout_led_style.css">
 </head>
 <body>
       
@@ -145,49 +18,40 @@
 
 	    <div class="body-container">
 
-	        <p>
+	        <p class="unique-sub-title">
 	    	    Ligar e desligar Led com ESP8266 via internet
-	    	    
 	        </p>
 	  	
 		    <div id="publish">
-			    
 				<input class="txt" id="pub-topic-text" type="hidden" value="MQTTLeviEnvia">
 				<input class="txt" id="pub-subscribe-text" type="hidden" value="MQTTLeviRecebe">
-						
 			</div>	     
 			
-		<div id="broker">					
-			<p>Conexão do servidor MQTT Broker:</p>
-			<input class="buttons ligar" id="connect-button" type="button" value="Conectar">
-			<input class="buttons desligar" id="disconnect-button" type="button" value="Desconectar">
-			<br>
-			<br>
-			<br>
-			<br>
-		</div>
-		<br>
-		<p>Acionamento do led:</p>
-		<input class="buttons ligar" id="liga-output" type="button" value="  Ligar ">
-		<input class="buttons desligar" id="desliga-output" type="button" value="Desligar">
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<p>Status do output:</p>	
-		<div id="status_io"></div>	
-		<br>
-		<br>
-		<br>
-		<p>Respostas do servidor:</p>
-		<div id="debug"></div>    
-	    
+			<div id="broker">					
+				<p class="p_center">Conexão do servidor MQTT Broker:</p>
+				<button class="buttons ligar" id="connect-button" type="button">Conectar</button>
+				<button class="buttons desligar" id="disconnect-button" type="button">Desconectar</button>
+			</div>
 
-		<div style="clear:both;"></div>
+			<p class="p_center">Acionamento do led:</p>
+			<button class="buttons ligar" id="liga-output" type="button">Ligar</button>
+			<button class="buttons desligar" id="desliga-output" type="button">Desligar</button>
+			
+			<p class="p_center">Status do output:</p>
+			<div id="status_io" class="twinkle-image"></div>	
+			
+			<p class="p_center">Respostas do servidor:</p>
+			<div id="debug"></div>    
+		    
+
+			<div style="clear:both;"></div>
 		</div>
 
 	</div>
+
+<script type='text/javascript' src='http://code.jquery.com/jquery-3.2.1.min.js'></script>
+<script type='text/javascript' src='http://test.mosquitto.org/mosquitto.js'></script>
 <script src="js/tmo.js" type="text/javascript"></script>
+
 </body>
 </html>

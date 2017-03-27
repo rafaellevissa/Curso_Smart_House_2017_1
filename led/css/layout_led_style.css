@@ -1,0 +1,177 @@
+body {
+	background:#2d2e32;
+    background-image:url('img/fundo.jpg');
+    background-position:left top!important;
+    background-repeat:no-repeat;
+    margin-top:30px!important;
+    margin-bottom:20px!important;
+}
+.body-container .unique-sub-title {
+	opacity:0.80;
+	text-align:center;
+}
+.p_center, #debug {
+	text-align:center;
+}
+#debug p {
+	background:#227163;
+	color:white;
+}
+.conexao_perdida {
+	background:#cccccc!important;
+	color:black!important;
+	border:1px solid #5d5b5b!important;
+}
+#status_io img {
+	display:block;
+	margin:auto;
+	width:10%;
+	margin-bottom:10px;
+}
+.top-header {
+	width:95%;
+	background:#ed5250;
+	text-align:center;
+	padding-top:10px;
+	padding-bottom:10px;
+	margin-bottom:10px;
+	margin:auto;
+	border-top:8px solid #cd4341;
+}
+.top-header h1 {
+	margin:0!important;
+	color:white;
+}
+.body-container {
+	width:95%;
+	background:white;
+	padding:10px;
+	margin:auto;
+}
+.button-containers {
+	margin:auto;
+}
+.buttons {
+	display:block;
+	text-decoration:none;
+	text-align:center;
+	padding:10px;
+	width:80%;
+	margin:auto;
+	margin-bottom:10px;
+	color:white;
+	font-size:20px;
+}
+.buttons:hover {
+	text-decoration:none;
+	opacity:0.90;
+	color:white;
+}
+button {
+	border:0;
+	outline:none;
+}
+.ligar {
+	background:#3db39e;
+	border-top:5px solid #339e8a;
+}
+.desligar {
+	background:#636162;
+	border-top:5px solid #504e4f;
+}
+
+/*Desktops*/
+@media screen and (min-width: 992px) {
+
+	.top-header {
+		width:40%;
+	}
+	.body-container{
+		width:40%!important;
+	}
+
+	.buttons {
+		width:50%!important;
+		height:100px;
+		line-height:70px;
+	}
+
+	.ligar {
+		float:left;
+	}
+
+	.desligar {
+		float:right;
+	}
+}
+
+/*Tablets*/
+@media screen and (min-width: 768px) {
+
+	.top-header {
+		margin-top:10px;
+	}
+	.buttons {
+		width:60%;
+	}
+
+	body {
+		background-position:center top!important;
+	}
+}
+
+/*Celulares*/
+@media screen and (max-width: 400px) {
+    
+    .body-container p {
+    	width:80%;
+    	display:block;
+    	margin:auto;
+    	margin-bottom:10px;
+    }
+
+    body {
+		background-position:center top!important;
+	}
+}
+
+
+/*Pisca a imagem do led*/
+.twinkle-image {
+ -webkit-animation:twinkle-image 1.5s infinite;
+ -moz-animation:twinkle-image 1.5s infinite;
+ -o-animation:twinkle-image 1.5s infinite;
+ -ms-animation:twinkle-image 1.5s infinite;
+}
+@-webkit-keyframes twinkle-image {/* For Chrome and Safare */
+ 90% {
+ opacity:0.40;
+ }
+ 20% {
+ opacity:0.90;
+ }
+}
+@-moz-keyframes twinkle-image {/* For Mozilla Fire fox */
+ 90% {
+ opacity:0.40;
+ }
+ 20% {
+ opacity:0.90;
+ }
+}
+@-o-keyframes twinkle-image {/* For Opera */
+ 90% {
+ opacity:0.40;
+ }
+ 20% {
+ opacity:0.90;
+ }
+}
+@-ms-keyframes twinkle-image {/* For Internet Explore */
+ 90% {
+ opacity:0.40;
+ }
+ 20% {
+ opacity:0.90;
+ }
+}
